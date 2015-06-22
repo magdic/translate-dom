@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Translate the DOM</title>
+</head>
+<body>
+ <div>
+      <button id="en-btn">EN</button>
+      <button id="es-btn">ES</button>
+    </div>
+    <h1 data-translatable>This is a test || Esto es una prueba </h1>
+    <p data-translatable>We are testing the plugin Dom-i18n. || Estamos probando la extension Dom-i18n. </p>
+    <p data-translatable>Thanks, have a nice day. || Gracias, tenga un lindo dia. </p>
+    
+
+    <script src="js/dom-i18n.js"></script>
+    <script>
+
+      var enButton = document.getElementById('en-btn');
+      var esButton = document.getElementById('es-btn');
+      var i18n = domI18n({
+        selector: '[data-translatable]',
+        separator: ' || ',
+        languages: ['en', 'es'],
+        defaultLanguage: 'en'
+      });
+
+      enButton.onclick = function () {
+        i18n.changeLanguage('en');
+      };
+
+      esButton.onclick = function () {
+        i18n.changeLanguage('es');
+      };
+
+    </script>
+</body>
+</html>
